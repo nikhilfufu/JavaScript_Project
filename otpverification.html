@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            font-size: 36px;
+            color: #ecf0f1;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #answer {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click to generate the otp: <button onclick="generateOtp()">Genrate</button></h1h1>
+    <p id="otp"></p>
+    <br>
+    <br>
+  <h1>Enter the Otp <input type="number" id="getopt">
+<br><button onclick="verifyOtp()">Verify otp</button></h1>
+<p id="verify"></p>
+</body>
+<script>
+    var o
+    function generateOtp(){
+        o=""
+        for(i=0;i<4;i++){
+o+=Math.floor(Math.random()*10);
+        }
+        document.getElementById("otp").innerText=`${o}`
+        console.log(o);
+        return o
+    }
+    o=generateOtp()
+    console.log("the var is -->"+o)
+    function verifyOtp(){
+         
+        let a = document.getElementById("getopt").value
+        console.log(a)
+        if(o==a){
+            document.getElementById("verify").innerText="Entered correct otp"
+            document.getElementById("verify").style.color="green";
+        }
+        else{
+            document.getElementById("verify").innerText="Entered wrong otp"
+            document.getElementById("verify").style.color="red";
+        }
+    }
+</script>
+</html>

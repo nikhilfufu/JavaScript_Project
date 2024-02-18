@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head style="background-color: darkgreen;">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color: rgb(132, 8, 8);" style="position: relative;">Even or Odd</title>
+    </head>
+<input type = "number" id="value" min="0" max="10000000" />
+<br>
+<button onclick="evnodd()" >click</button>
+<br>
+<p id="answer" style="position: relative;" style="color: blue;"></p>
+
+<script>
+    function evnodd(){
+        let x = document.getElementById("value").value;
+        let y = EvenOrOdd(x)
+        document.getElementById("answer").innerText=`${y}`
+    }
+    function EvenOrOdd(x){
+        if(x%2==0){
+            return `${x} is even`
+        }
+        else
+            return `${x} is odd`
+    }
+</script>
+</html>

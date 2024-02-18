@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            background-color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            font-size: 36px;
+            color: #ecf0f1;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #answer {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <header>Simple Calculator</header>
+        <h1>Enter first value <input type="number" id="value1" autocomplete="off"></h1>
+        <h1>Enter the operator <input type="text" id="op"></h1>
+        <h1>Enter Second Value <input type="number" id="value2"></h1>
+        <button onclick="cal()">Calculate</button>
+        <br>
+        <p id="answer"></p>
+    </div>
+
+    <script>
+        function cal(){
+            let v = document.getElementById("value1").value
+            let o = document.getElementById("op").value
+            let v2 =  document.getElementById("value2").value
+            let operatorName = getOperatorName(o);
+            let ans = op(v, o, v2);
+            console.log(ans);
+            {
+                let x = 40;
+            }
+            
+            if(!(operatorName=='Unknown Operator')){
+            document.getElementById("answer").innerText = `The ${operatorName} of ${v} and ${v2} is ${ans}`;
+            }
+            else{
+                document.getElementById("answer").innerText =`The (${o}) operator you have entered is invalid`
+            }
+        }
+
+        function getOperatorName(operatorSymbol){
+            switch(operatorSymbol){
+                case '*':
+                    return 'Multiplication';
+                case '+':
+                    return 'Addition';
+                case '-':
+                    return 'Subtraction';
+                case '/':
+                    return 'Division';
+                case '%':
+                    return 'Modulus';
+                default:
+                    let s = 'Unknown Operator'
+                    return s;
+            }
+        }
+
+        function op(v, o, v2){
+            switch(o){
+                case '*':
+                    return v * v2;
+                case '+':
+                    return Number(v) + Number(v2);
+                case '-':
+                    return v - v2;
+                case '/':
+                    return v / v2;
+                case '%':
+                    return v % v2;
+                default:
+                    return "Undefined";
+            }
+        }
+    </script>
+</body>
+</html>

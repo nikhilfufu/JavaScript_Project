@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pangram Checker</title>
+</head>
+<body>
+    <input type="text" id="value" autocomplete="off" />
+    <br>
+    <button onclick="checkPangram()">Check</button>
+    <br>
+    <p id="answer" style="position: relative; color: blue;"></p>
+
+    <script>
+        function checkPangram() {
+            let x = document.getElementById("value").value;
+            let isPangram = panagram(x);
+
+            if (isPangram) {
+                document.getElementById("answer").innerText = "The string is a pangram.";
+            } else {
+                document.getElementById("answer").innerText = "The string is not a pangram.";
+            }
+        }
+
+        function panagram(x) {
+            let cleanedString = x.replace(/[^a-z]/gi, "").toLowerCase();
+            let uniqueCharacters = new Set(cleanedString).size;
+
+            return uniqueCharacters === 26;
+        }
+    </script>
+</body>
+</html>
