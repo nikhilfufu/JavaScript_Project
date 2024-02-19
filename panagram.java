@@ -1,5 +1,8 @@
 public class panagram {
     public static void main(String[] args) {
+        String s2 = "nikhil";
+
+
         String input = "The quick brown fox jumps over the lazy dog";
         if(isPanagram(input)){
             System.out.println("it is a panagram");

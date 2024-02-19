@@ -87,10 +87,12 @@
             }
             
             if(!(operatorName=='Unknown Operator')){
-            document.getElementById("answer").innerText = `The ${operatorName} of ${v} and ${v2} is ${ans}`;
+            document.getElementById("answer").innerText = `The ${operatorName} of ${v} and ${v2} is ${ans}`
+            document.getElementById("answer").style.color="green"
             }
             else{
                 document.getElementById("answer").innerText =`The (${o}) operator you have entered is invalid`
+                document.getElementById("answer").style.color="red"
             }
         }
 

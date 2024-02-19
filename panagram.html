@@ -1,17 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pangram Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #answer {
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="value" autocomplete="off" />
-    <br>
-    <button onclick="checkPangram()">Check</button>
-    <br>
-    <p id="answer" style="position: relative; color: blue;"></p>
+    <div class="container">
+        <h1>Pangram Checker</h1>
+        <input type="text" id="value" autocomplete="off" placeholder="Enter your sentence...">
+        <br>
+        <button onclick="checkPangram()">Check</button>
+        <br>
+        <p id="answer"></p>
+        <div id="reaction"></div>
+    </div>
 
     <script>
         function checkPangram() {
@@ -20,8 +66,10 @@
 
             if (isPangram) {
                 document.getElementById("answer").innerText = "The string is a pangram.";
+                document.getElementById("reaction").innerHTML = '<img src="https://emojicdn.elk.sh/🎉" alt="party popper" width="50">';
             } else {
                 document.getElementById("answer").innerText = "The string is not a pangram.";
+                document.getElementById("reaction").innerHTML = '<img src="https://emojicdn.elk.sh/😕" alt="sad face" width="50">';
             }
         }
 
