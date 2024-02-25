@@ -6,8 +6,10 @@ let a = "nikhil"
 {
     let a = "this from block"
     console.log(a)
-     let b
-    console.log(b)
+   
 }
 console.log(a)
+
+let n = "nikhil";
+console.log(n.replaceAll("/n/g","N"));
 

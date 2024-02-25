@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click count</title>
+</head>
+<body>
+    <h1 id = "count"></h1>
+    <button id = "click" onclick="count()">click</button>
+    <script>
+let num = 0;
+const button = document.getElementById("click")
+const value = document.getElementById("count")
+function count(){
+if(button.innerText=="click"){
+    
+    console.log(num++)
+    button.innerText="undo"
+    value.innerText=num
+}
+else{
+    button.innerText="click"
+    num=0
+    value.innerText=""
+}
+}
+    </script>
+</body>
+
+</html>
